@@ -406,6 +406,7 @@ class PineconeVectorStore(VectorStore):
         upsert_kwargs: Optional[dict] = None,
         pool_threads: int = 4,
         embeddings_chunk_size: int = 1000,
+        async_req: bool = True,
         **kwargs: Any,
     ) -> PineconeVectorStore:
         """Construct Pinecone wrapper from raw documents.
@@ -445,6 +446,7 @@ class PineconeVectorStore(VectorStore):
             namespace=namespace,
             batch_size=batch_size,
             embedding_chunk_size=embeddings_chunk_size,
+            async_req=async_req,
             **(upsert_kwargs or {}),
         )
         return pinecone
